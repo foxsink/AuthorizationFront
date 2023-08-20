@@ -1,12 +1,12 @@
 <template>
     <div class="h-full">
-        <header></header>
+        <header />
 
         <main class="h-full">
-            <slot></slot>
+            <slot />
         </main>
 
-        <footer></footer>
+        <footer />
     </div>
 </template>
 

@@ -13,6 +13,7 @@ module.exports = {
         'vue',
     ],
     rules: {
+        semi: ['error', 'always'],
         'vue/max-attributes-per-line': ['error', {
             singleline: 1,
             multiline: {
@@ -25,7 +26,8 @@ module.exports = {
         camelcase: 'warn',
         curly: ['error', 'all'],
         'comma-dangle': ['error', 'always-multiline'],
-        'no-shadow': 'warn',
+        'no-shadow': 'off',
+        '@typescript-eslint/no-shadow': 'error',
         indent: ['error', 4,
             {
                 SwitchCase: 1,
@@ -40,7 +42,7 @@ module.exports = {
         'vue/html-self-closing': ['error', {
             html: {
                 void: 'never',
-                normal: 'never',
+                normal: 'always',
                 component: 'always',
             },
             svg: 'always',
@@ -77,4 +79,4 @@ module.exports = {
         'prisma/**',
         'server/**',
     ],
-}
+};
