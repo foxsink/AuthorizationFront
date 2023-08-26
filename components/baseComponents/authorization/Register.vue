@@ -31,8 +31,8 @@
                 v-model="phoneInput"
                 :success="isValidPhone"
                 showCodeOnList
-                @update="togglePhoneValidation"
-                @country-code="pauseToggle"
+                @update:model-value="togglePhoneValidation"
+                @country-code="togglePhoneValidation"
             />
 
             <Field
@@ -63,7 +63,6 @@
 <script setup lang="ts">
     import MazPhoneNumberInput from 'maz-ui/components/MazPhoneNumberInput';
     import { useLoginConfig } from './composables/useConfig';
-    import { MozPhoneNumberInputType } from './interfaces/MozPhoneNumberInputType';
 
     defineEmits<{(e: 'swap'): void}>();
 
@@ -76,15 +75,18 @@
     const phoneInput = ref('');
     const isValidPhone = ref(false);
 
-    const pauseToggle = () => {
-        setTimeout(() => {
+    const togglePhoneValidation = (event: string | undefined) => {
+        if (!event) {
             isValidPhone.value = false;
-        }, 1000);
-    };
-    const togglePhoneValidation = (event: MozPhoneNumberInputType) => {
-        console.log(event);
 
-        isValidPhone.value = event.isValid;
+            return;
+        }
+
+        if (/^\+?\d+/.test(event)) {
+            isValidPhone.value = true;
+        } else {
+            isValidPhone.value = false;
+        }
     };
 
     const checkData = () => {
