@@ -1,13 +1,11 @@
 export const useRegisterConfig = () => {
-    const nameProps = ref({
-        options: {
-            labelText: 'Enter your name',
-        },
-        labelOptions: {
+    const nameConfig = {
+        labelString: 'Enter your name',
+        labelAttrs: {
             for: 'name',
             class: 'block text-sm font-medium leading-6 text-gray-900',
         },
-        inputOptions: {
+        inputAttrs: {
             id: 'name',
             name: 'name',
             type: 'text',
@@ -15,16 +13,14 @@ export const useRegisterConfig = () => {
             required: true,
             class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
         },
-    });
-    const surnameProps = ref({
-        options: {
-            labelText: 'Enter your surname',
-        },
-        labelOptions: {
+    };
+    const surnameConfig = {
+        labelString: 'Enter your surname',
+        labelAttrs: {
             for: 'surname',
             class: 'block text-sm font-medium leading-6 text-gray-900',
         },
-        inputOptions: {
+        inputAttrs: {
             id: 'surname',
             name: 'surname',
             type: 'text',
@@ -32,16 +28,14 @@ export const useRegisterConfig = () => {
             required: true,
             class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
         },
-    });
-    const phoneProps = ref({
-        options: {
-            labelText: 'Enter your phone',
-        },
-        labelOptions: {
+    };
+    const phoneConfig = {
+        labelString: 'Enter your phone',
+        labelAttrs: {
             for: 'phone',
             class: 'block text-sm font-medium leading-6 text-gray-900',
         },
-        inputOptions: {
+        inputAttrs: {
             id: 'phone',
             name: 'phone',
             type: 'tel',
@@ -49,17 +43,15 @@ export const useRegisterConfig = () => {
             required: true,
             class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
         },
-    });
+    };
 
-    const emailProps = ref({
-        options: {
-            labelText: 'Enter your email',
-        },
-        labelOptions: {
+    const emailConfig = {
+        labelString: 'Enter your email',
+        labelAttrs: {
             for: 'email',
             class: 'block text-sm font-medium leading-6 text-gray-900',
         },
-        inputOptions: {
+        inputAttrs: {
             id: 'email',
             name: 'email',
             type: 'email',
@@ -67,16 +59,14 @@ export const useRegisterConfig = () => {
             required: true,
             class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
         },
-    });
-    const passwordProps = ref({
-        options: {
-            labelText: 'Enter your password',
-        },
-        labelOptions: {
+    };
+    const passwordConfig = {
+        labelString: 'Enter your password',
+        labelAttrs: {
             for: 'password',
             class: 'block text-sm font-medium leading-6 text-gray-900',
         },
-        inputOptions: {
+        inputAttrs: {
             id: 'password',
             name: 'password',
             type: 'password',
@@ -84,13 +74,13 @@ export const useRegisterConfig = () => {
             required: true,
             class: 'block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
         },
-    });
+    };
 
     return {
-        nameProps,
-        surnameProps,
-        emailProps,
-        phoneProps,
-        passwordProps,
+        nameConfig,
+        surnameConfig,
+        emailConfig,
+        phoneConfig,
+        passwordConfig,
     };
 };

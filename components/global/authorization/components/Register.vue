@@ -5,24 +5,21 @@
         <template #fields>
             <Field
                 v-model="nameInput"
-                :inputOptions="emailProps.inputOptions"
-                :labelOptions="emailProps.labelOptions"
+                :config="nameConfig"
             >
                 Enter your name
             </Field>
 
             <Field
                 v-model="surnameInput"
-                :inputOptions="passwordProps.inputOptions"
-                :labelOptions="passwordProps.labelOptions"
+                :config="surnameConfig"
             >
                 Enter your surname
             </Field>
 
             <Field
                 v-model="emailInput"
-                :inputOptions="passwordProps.inputOptions"
-                :labelOptions="passwordProps.labelOptions"
+                :config="emailConfig"
             >
                 Enter your email
             </Field>
@@ -37,25 +34,24 @@
 
             <Field
                 v-model="passwordInput"
-                :inputOptions="passwordProps.inputOptions"
-                :labelOptions="passwordProps.labelOptions"
+                :config="passwordConfig"
             >
                 Enter your password
             </Field>
         </template>
         <template #buttons>
-            <BaseButton
+            <Button
                 class="bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 @click="auth()"
             >
                 Register
-            </BaseButton>
-            <BaseButton
+            </Button>
+            <Button
                 class="bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-indigo-600 shadow-sm outline outline-1 outline-indigo-600 hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 @click="$emit('changePage', AuthorizationPageState.LOGIN)"
             >
                 Sign in
-            </BaseButton>
+            </Button>
         </template>
     </BaseForm>
 </template>
@@ -66,7 +62,8 @@
 
     defineEmits<{(e: 'changePage', value: AuthorizationPageState): void}>();
 
-    const { emailProps, passwordProps } = useLoginConfig();
+    const { nameConfig, surnameConfig, emailConfig, passwordConfig } = useRegisterConfig();
+    const { Field, Button } = useRenderComponents();
 
     const emailInput = ref('');
     const passwordInput = ref('');
