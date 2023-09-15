@@ -17,6 +17,5 @@ type RegisterField =
     [AuthorizationFieldsIdentifier.PASSWORD]
 ;
 
-export type AuthFieldsType = {
-    LoginField[]: Field,
-};
+export type AuthFieldsType =
+    LoginField: Field;

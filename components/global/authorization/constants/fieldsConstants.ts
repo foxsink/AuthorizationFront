@@ -1,6 +1,6 @@
 import { AuthorizationPageState, Field, AuthorizationFieldsIdentifier, AuthFieldsType } from '~/components/global/authorization/interfaces';
 
-export const fieldsConstants = (): Record<AuthorizationPageState, Record<AuthFieldsType, Field>> => {
+export const fieldsConstants = (): Record<AuthorizationPageState, AuthFieldsType> => {
     const emailFieldConfig: Field = {
         labelString: 'Email Address',
         labelAttrs: {
