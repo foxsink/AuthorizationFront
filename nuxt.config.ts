@@ -4,14 +4,18 @@ export default defineNuxtConfig({
     modules: [
         '@nuxtjs/eslint-module',
         '@nuxtjs/tailwindcss',
+        'nuxt-headlessui',
     ],
     tailwindcss: {
         exposeConfig: true,
         config: {
             content: [
-                '~/components/**/*.{html,vue,ts}',
+                '~/components/**/*.{html,vue,js,ts,jsx,tsx}',
             ],
         },
+    },
+    headlessui: {
+        prefix: '',
     },
     components: {
         dirs: [
@@ -20,7 +24,10 @@ export default defineNuxtConfig({
                 global: true,
                 pathPrefix: false,
             },
-            '~/components',
+            {
+                path: '~/components',
+                pathPrefix: false,
+            },
         ],
     },
     css: [

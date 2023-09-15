@@ -10,12 +10,13 @@
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <Authorization :defaultPage="AuthorizationPageState.LOGIN" />
+            <Register />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-    import { AuthorizationPageState } from '~/components/global/authorization/interfaces/authEnums';
+    import { AuthorizationPageState } from '~/components/global/authorization/interfaces';
 
 </script>
 

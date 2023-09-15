@@ -4,16 +4,25 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    extends: ['@nuxtjs/eslint-config-typescript'],
+    extends: [
+        '@nuxtjs/eslint-config-typescript',
+        'plugin:vue/vue3-recommended',
+    ],
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
     plugins: [
-        'vue',
     ],
     rules: {
-        semi: ['error', 'always'],
+        semi: 'off',
+        '@typescript-eslint/semi': 'error',
+        '@typescript-eslint/member-delimiter-style': ['error', {
+            multiline: { delimiter: 'comma' },
+            singleline: { delimiter: 'comma' },
+        }],
+        'no-extra-semi': 'off',
+        '@typescript-eslint/no-extra-semi': 'error',
         'vue/max-attributes-per-line': ['error', {
             singleline: 1,
             multiline: {

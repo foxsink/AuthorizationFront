@@ -1,17 +1,17 @@
 import { SetupContext, ComponentOptions, LabelHTMLAttributes, InputHTMLAttributes } from 'vue';
 
 type FieldProps = {
-    config: {
+    config?: {
         labelString?: string,
         labelAttrs?: LabelHTMLAttributes,
-        inputAttrs: InputHTMLAttributes,
+        inputAttrs?: InputHTMLAttributes,
     },
-    modelValue: string,
-}
+    modelValue?: string,
+};
 
 type ButtonProps = {
     content?: string,
-}
+};
 
 export const useRenderComponents = () => {
     const Button = (
@@ -31,17 +31,20 @@ export const useRenderComponents = () => {
     ) => {
         return (
             <div>
-                { props.config.labelString ?? <label
-                    {...props.config.labelAttrs}>
-                    { slots.default?.() ?? props.config.labelString }
-                </label>
+                { props.config?.labelString
+                    ? <label
+                        {...props.config?.labelAttrs}>
+                        { slots.default?.() ?? props.config?.labelString ?? '' }
+                    </label>
+                    : ''
                 }
-                <div class="mt-2">
-                    <input
-                        {...props.config.inputAttrs}
-                        value={props.modelValue}
-                        onInput={(e: Event) => emit('update:modelValue', (e.target as HTMLInputElement).value)} />
-                </div>
+                {
+                    slots.input?.() ??
+                        <input
+                            {...props.config?.inputAttrs}
+                            value={props.modelValue}
+                            onInput={(e: Event) => emit('update:modelValue', (e.target as HTMLInputElement).value)} />
+                }
             </div>
         );
     };

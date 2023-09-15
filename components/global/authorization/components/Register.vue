@@ -4,25 +4,9 @@
     >
         <template #fields>
             <Field
-                v-model="nameInput"
-                :config="nameConfig"
-            >
-                Enter your name
-            </Field>
-
-            <Field
-                v-model="surnameInput"
-                :config="surnameConfig"
-            >
-                Enter your surname
-            </Field>
-
-            <Field
                 v-model="emailInput"
                 :config="emailConfig"
-            >
-                Enter your email
-            </Field>
+            />
 
             <MazPhoneNumberInput
                 v-model="phoneInput"
@@ -62,13 +46,11 @@
 
     defineEmits<{(e: 'changePage', value: AuthorizationPageState): void}>();
 
-    const { nameConfig, surnameConfig, emailConfig, passwordConfig } = useRegisterConfig();
+    const { emailConfig, passwordConfig } = useRegisterConfig();
     const { Field, Button } = useRenderComponents();
 
     const emailInput = ref('');
     const passwordInput = ref('');
-    const surnameInput = ref('');
-    const nameInput = ref('');
     const phoneInput = ref('');
     const isValidPhone = ref(false);
 
